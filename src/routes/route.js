@@ -1,9 +1,10 @@
 const express = require('express');
-
 const router = express.Router();
+const { internController, collegeController } = require('../controllers')
 
-router.get('/test-me', function (req, res) {
-    res.send('My first ever api!')
-});
+router.post('/colleges', collegeController.registerCollege);
+
+router.post('/interns', internController.registerIntern);
+router.get('/collegeDetails', internController.getIntern);
 
 module.exports = router;
